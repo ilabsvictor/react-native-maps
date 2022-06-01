@@ -1011,7 +1011,9 @@ public class AirMapView extends MapView implements GoogleMap.InfoWindowAdapter,
 
     int X = (int)ev.getX();          
     int Y = (int)ev.getY();
-    tapLocation = map.getProjection().fromScreenLocation(new Point(X,Y));
+    if (map != null) {
+      tapLocation = map.getProjection().fromScreenLocation(new Point(X,Y));
+    }
 
     int action = MotionEventCompat.getActionMasked(ev);
 
